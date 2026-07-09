@@ -14,7 +14,7 @@ class DepartamentoAdmin(admin.ModelAdmin):
     # por cada registro
     # se deja de usar la representación (str) 
     # de la clase 
-    list_display = ('nombre_propietario', 'costo_departamento', 'num_cuartos')
+    list_display = ('nombre_propietario', 'costo_departamento', 'num_cuartos', 'edificio')
 
 admin.site.register(Edificio, EdificioAdmin)
 admin.site.register(Departamento, DepartamentoAdmin)
