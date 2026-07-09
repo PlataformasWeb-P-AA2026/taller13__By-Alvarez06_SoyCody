@@ -5,11 +5,34 @@
 {% endblock %}
 
 {% block content %}
-<h2>Menú de Control Inmobiliario</h2>
 
-<h3>Edificios Registrados (Total: {{ numero_edificios }})</h3>
-<section class="table-section">
-  <table>
+<section class="hero">
+  <div class="hero-info">
+    <span class="badge">Panel de Control</span>
+
+    <h1>Gestión Inmobiliaria</h1>
+
+    <p>
+      Administra de manera eficiente los edificios y departamentos registrados en el sistema.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#edificios" class="btn primary">Ver Edificios</a>
+      <a href="#departamentos" class="btn secondary">Ver Departamentos</a>
+    </div>
+  </div>
+
+  <div class="hero-box">
+    <span class="mini-badge">Resumen del sistema</span>
+    <h2>{{ numero_edificios }}</h2>
+    <p>Edificios registrados actualmente.</p>
+  </div>
+</section>
+
+<section id="edificios" class="table-section">
+  <h2>Edificios Registrados</h2>
+
+  <table class="tabla_datos">
       <thead>
           <tr>
               <th>Nombre del Edificio</th>
@@ -35,11 +58,10 @@
   </table>
 </section>
 
-<br><br>
-
-<section class="table-section">
-  <h3>Departamentos Registrados (Total: {{ numero_departamentos }})</h3>
-  <table>
+<section id="departamentos" class="table-section">
+  <h2>Departamentos Registrados <span>({{ numero_departamentos }})</span></h2>
+  
+  <table class="tabla_datos">
       <thead>
           <tr>
               <th>Nombre del Propietario</th>
@@ -52,7 +74,7 @@
           {% for d in departamentos %}
           <tr>
               <td>{{ d.nombre_propietario }}</td>
-              <td>${{ d.costo_departamento }}</td>
+              <td><span class="yellow">${{ d.costo_departamento }}</span></td>
               <td>{{ d.num_cuartos }}</td>
               <td>{{ d.edificio.nombre }}</td>
           </tr>
@@ -65,12 +87,15 @@
   </table>
 </section>
 
-<br><br>
-[<a href="{% url 'index' %}">Inicio</a>]
-
 <script type="text/javascript">
-  $(document).ready( function () {
-    $('#tabla_datos').DataTable();
+  $(document).ready(function() {
+    // Se usa la clase .tabla_datos para inicializar ambas tablas a la vez
+    $('.tabla_datos').DataTable({
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+      }
+    });
   });
 </script>
+
 {% endblock %}
