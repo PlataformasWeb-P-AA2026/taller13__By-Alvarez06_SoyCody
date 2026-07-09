@@ -1,0 +1,76 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Administrativo Condominio
+{% endblock %}
+
+{% block content %}
+<h2>Menú de Control Inmobiliario</h2>
+
+<h3>Edificios Registrados (Total: {{ numero_edificios }})</h3>
+<section class="table-section">
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre del Edificio</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Tipo</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for e in edificios %}
+          <tr>
+              <td>{{ e.nombre }}</td>
+              <td>{{ e.direccion }}</td>
+              <td>{{ e.ciudad }}</td>
+              <td>{{ e.tipo }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">No existen edificios registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+<br><br>
+
+<section class="table-section">
+  <h3>Departamentos Registrados (Total: {{ numero_departamentos }})</h3>
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre del Propietario</th>
+              <th>Costo del Departamento</th>
+              <th>Número de Cuartos</th>
+              <th>Edificio Asociado</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for d in departamentos %}
+          <tr>
+              <td>{{ d.nombre_propietario }}</td>
+              <td>${{ d.costo_departamento }}</td>
+              <td>{{ d.num_cuartos }}</td>
+              <td>{{ d.edificio.nombre }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">No existen departamentos registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+<br><br>
+[<a href="{% url 'index' %}">Inicio</a>]
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}
