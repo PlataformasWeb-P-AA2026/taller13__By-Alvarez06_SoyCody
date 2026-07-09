@@ -59,6 +59,12 @@ Nota: Un departamento pertenece a un edificio
 - Django-Rest
 - Flask
 
+### Evidencias
+**BD SQLite**
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/fe16fd22-8208-4e05-99bb-d26c6d3f0314" />
+
+
 
 ### Tarea a realizar:
 
