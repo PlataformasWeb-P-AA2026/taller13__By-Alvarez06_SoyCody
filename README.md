@@ -64,6 +64,9 @@ Nota: Un departamento pertenece a un edificio
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/fe16fd22-8208-4e05-99bb-d26c6d3f0314" />
 
+**BD PostgreSQL**
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/918b9e6c-71ee-4e9b-b0a0-9a64734e508e" />
 
 
 ### Tarea a realizar:
