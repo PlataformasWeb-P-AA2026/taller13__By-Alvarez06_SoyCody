@@ -4,7 +4,7 @@ import json
 
 app = Flask(__name__, template_folder='templates')
 
-token = 0
+token = '493346043f223ae9890d44a30ec2771966f40744'
 headers = {
         "Authorization": f"Token {token}",
         "Content-Type": "application/json"
@@ -12,6 +12,7 @@ headers = {
 
 @app.route("/")
 def home():
+    
     return "¡Hola mundo!"
 
 
