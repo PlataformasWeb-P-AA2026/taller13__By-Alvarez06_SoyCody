@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Departamentos
+{% endblock %}
+
+{% block content %}
+
+<section id="departamentos" class="table-section">
+  <h2>Departamentos Registrados <span>({{ numero_departamentos }})</span></h2>
+
+  <div class="hero-buttons">
+    <a href="{{ url_for('crear_departamento') }}" class="btn primary">Crear Departamento</a>
+  </div>
+
+  <table class="tabla_datos">
+      <thead>
+          <tr>
+              <th>Nombre del Propietario</th>
+              <th>Costo del Departamento</th>
+              <th>Número de Cuartos</th>
+              <th>Edificio Asociado</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for d in departamentos %}
+          <tr>
+              <td>{{ d.nombre_propietario }}</td>
+              <td><span class="yellow">${{ d.costo_departamento }}</span></td>
+              <td>{{ d.num_cuartos }}</td>
+              <td>{{ d.edificio_nombre }}</td>
+          </tr>
+          {% else %}
+          <tr>
+              <td colspan="4">No existen departamentos registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+{% endblock %}

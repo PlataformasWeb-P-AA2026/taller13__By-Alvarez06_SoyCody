@@ -17,8 +17,8 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#edificios" class="btn primary">Ver Edificios</a>
-      <a href="#departamentos" class="btn secondary">Ver Departamentos</a>
+      <a href="{{ url_for('listar_edificios') }}" class="btn primary">Ver Edificios</a>
+      <a href="{{ url_for('listar_departamentos') }}" class="btn secondary">Ver Departamentos</a>
     </div>
   </div>
 
@@ -76,7 +76,7 @@
               <td>{{ d.nombre_propietario }}</td>
               <td><span class="yellow">${{ d.costo_departamento }}</span></td>
               <td>{{ d.num_cuartos }}</td>
-              <td>{{ d.edificio.nombre }}</td>
+              <td>{{ d.edificio_nombre }}</td>
           </tr>
           {% else %}
           <tr>

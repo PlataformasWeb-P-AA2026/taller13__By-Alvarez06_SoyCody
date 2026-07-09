@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Crear Departamento
+{% endblock %}
+
+{% block content %}
+
+<section class="table-section">
+  <h2>Crear Departamento</h2>
+
+  <form method="POST" action="{{ url_for('crear_departamento') }}">
+    <p>
+      <label for="nombre_propietario">Nombre del Propietario</label><br>
+      <input type="text" id="nombre_propietario" name="nombre_propietario" required>
+    </p>
+    <p>
+      <label for="costo_departamento">Costo del Departamento</label><br>
+      <input type="number" step="0.01" id="costo_departamento" name="costo_departamento" required>
+    </p>
+    <p>
+      <label for="num_cuartos">Número de Cuartos</label><br>
+      <input type="number" id="num_cuartos" name="num_cuartos" required>
+    </p>
+    <p>
+      <label for="edificio">Edificio Asociado</label><br>
+      <select id="edificio" name="edificio" required>
+        {% for e in edificios %}
+        <option value="{{ e.url }}">{{ e.nombre }}</option>
+        {% endfor %}
+      </select>
+    </p>
+    <button type="submit" class="btn primary">Guardar</button>
+    <a href="{{ url_for('listar_departamentos') }}" class="btn secondary">Cancelar</a>
+  </form>
+</section>
+
+{% endblock %}

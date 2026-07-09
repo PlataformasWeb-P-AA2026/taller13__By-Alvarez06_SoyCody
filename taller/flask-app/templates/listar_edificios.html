@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Edificios
+{% endblock %}
+
+{% block content %}
+
+<section id="edificios" class="table-section">
+  <h2>Edificios Registrados <span>({{ numero_edificios }})</span></h2>
+
+  <div class="hero-buttons">
+    <a href="{{ url_for('crear_edificio') }}" class="btn primary">Crear Edificio</a>
+  </div>
+
+  <table class="tabla_datos">
+      <thead>
+          <tr>
+              <th>Nombre del Edificio</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Tipo</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for e in edificios %}
+          <tr>
+              <td>{{ e.nombre }}</td>
+              <td>{{ e.direccion }}</td>
+              <td>{{ e.ciudad }}</td>
+              <td>{{ e.tipo }}</td>
+          </tr>
+          {% else %}
+          <tr>
+              <td colspan="4">No existen edificios registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+{% endblock %}

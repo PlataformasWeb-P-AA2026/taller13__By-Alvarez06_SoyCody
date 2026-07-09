@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Crear Edificio
+{% endblock %}
+
+{% block content %}
+
+<section class="table-section">
+  <h2>Crear Edificio</h2>
+
+  <form method="POST" action="{{ url_for('crear_edificio') }}">
+    <p>
+      <label for="nombre">Nombre del Edificio</label><br>
+      <input type="text" id="nombre" name="nombre" required>
+    </p>
+    <p>
+      <label for="direccion">Dirección</label><br>
+      <input type="text" id="direccion" name="direccion" required>
+    </p>
+    <p>
+      <label for="ciudad">Ciudad</label><br>
+      <input type="text" id="ciudad" name="ciudad" required>
+    </p>
+    <p>
+      <label for="tipo">Tipo de Edificio</label><br>
+      <input type="text" id="tipo" name="tipo" placeholder="Residencial, Comercial..." required>
+    </p>
+    <button type="submit" class="btn primary">Guardar</button>
+    <a href="{{ url_for('listar_edificios') }}" class="btn secondary">Cancelar</a>
+  </form>
+</section>
+
+{% endblock %}
