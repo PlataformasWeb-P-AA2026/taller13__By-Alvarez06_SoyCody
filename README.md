@@ -1,5 +1,7 @@
 # taller13
 
+## Integrantes: Byron Alvarez - Cody Cabrera
+
 ## Creación de Servicio Web y Consumo vía Flask
 
 ### Revisar
