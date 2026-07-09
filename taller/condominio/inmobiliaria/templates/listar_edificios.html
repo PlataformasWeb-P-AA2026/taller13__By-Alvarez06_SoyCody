@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Edificios
+{% endblock %}
+
+{% block content %}
+<br>
+<section class="table-section">
+  <h2>Catálogo de Edificios Registrados <span>({{ numero_edificios }})</span></h2>
+
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre del Edificio</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Tipo</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for e in edificios %}
+          <tr>
+              <td>{{ e.nombre }}</td>
+              <td>{{ e.direccion }}</td>
+              <td>{{ e.ciudad }}</td>
+              <td>{{ e.tipo }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">No existen edificios registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+{% endblock %}

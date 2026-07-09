@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Departamentos
+{% endblock %}
+
+{% block content %}
+<br>
+<section class="table-section">
+  <h2>Catálogo de Departamentos Registrados <span>({{ numero_departamentos }})</span></h2>
+  
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre del Propietario</th>
+              <th>Costo del Departamento</th>
+              <th>Número de Cuartos</th>
+              <th>Edificio Asociado</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for d in departamentos %}
+          <tr>
+              <td>{{ d.nombre_propietario }}</td>
+              <td><span class="yellow">${{ d.costo_departamento }}</span></td>
+              <td>{{ d.num_cuartos }}</td>
+              <td>{{ d.edificio.nombre }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">No existen departamentos registrados en el sistema.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</section>
+
+{% endblock %}
